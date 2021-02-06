@@ -1,1 +1,19 @@
+.bgimg-1 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgimg-1 {
+  background-image: url("https://github.com/vfillis/vfillis.github.io/blob/main/docs/images/nicolas-j-leclercq-fbovpZ4GuLg-unsplash-2.jpg?raw=true");
+  min-height: 100%;
+}
 
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1 {
+    background-attachment: scroll;
+  }
+}
