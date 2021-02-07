@@ -19,6 +19,11 @@ body, html {
   text-decoration: underline;
 }
 
+.home {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 .header {
   padding: 60px;
   text-align: center;
