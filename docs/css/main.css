@@ -20,9 +20,10 @@ body, html {
 }
 
 .home {
-  position: absolute;
+  float: right;
+  /* position: absolute;
   right: 0px;
-  top: 0px;
+  top: 0px;*/
 }
 
 .header {
