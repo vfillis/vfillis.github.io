@@ -21,8 +21,8 @@ body, html {
 
 .home {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 90%;
+  top: 2%;
 }
 .header {
   padding: 60px;
