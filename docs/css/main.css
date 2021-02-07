@@ -21,8 +21,9 @@ body, html {
 
 .home {
   position: absolute;
-  right: 90%;
-  top: 2%;
+  left: 0;
+  top: 2;
+  text-align: center;
 }
 .header {
   padding: 60px;
