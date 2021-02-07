@@ -21,10 +21,10 @@ body, html {
 
 .home {
   position: absolute;
-  left: 0;
-  top: 2;
-  text-align: center;
+  right: 0px;
+  top: 0px;
 }
+
 .header {
   padding: 60px;
   text-align: center;
