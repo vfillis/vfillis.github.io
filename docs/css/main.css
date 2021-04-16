@@ -48,7 +48,7 @@ body, html {
   color: #000;
 }
 
-.caption span.heading {
+.caption span.image-heading {
   color: #fff;
   padding: 18px;
   font-size: 2em;
@@ -87,6 +87,14 @@ body, html {
 
 #to-top:hover {
   background-color: #555;
+}
+
+h1 {
+  letter-spacing: 3px;
+  /*text-transform: uppercase;*/
+  font: 70px "Lato", sans-serif;
+  color: #111;
+  padding:2%;
 }
 
 h3 {
@@ -141,13 +149,13 @@ h3 {
 }
 
 /* images */
-.jocelyn-image { 
+.jocelyn-image {
   width:50%;
   float:left;
   padding:3%;
 }
 
-.abbi-image { 
+.abbi-image {
   width:45%;
   float:right;
   padding:3%;
@@ -163,11 +171,11 @@ figure {
 figcaption {
   font-size:14px;
   color: grey;
-} 
+}
 
 /* lists */
 li {
-  margin-left: 8%;
+  margin-left: 3%;
   padding:1%;
 }
 
@@ -176,6 +184,20 @@ li {
   /* padding: 20%; */
   text-align: center;
   /* margin-top: 20%; */
+}
+
+.get-in-touch {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.get-in-touch a {
+  text-decoration: none;
+  color:white;
 }
 
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
@@ -190,10 +212,9 @@ font-size: 44px !important;
   .header {
     position: static;
   }
-  
+
  @media print {
   a[href^="http"]:not([href*="mywebsite.com"])::after {
     content: " (" attr(href) ")";
   }
 }
-  
