@@ -55,14 +55,21 @@ body, html {
   letter-spacing: 0.3em;
 }
 
-.caption span.subhead {
+.caption span.caption-heading {
+  color: #fff;
+  padding: 18px;
+  font-size: 2em;
+  letter-spacing: 0.3em;
+}
+
+.caption span.caption-subhead {
   color: #fff;
   padding: 18px;
   font-size: 1.5em;
   letter-spacing: 0.2em;
 }
 
-.caption span.byline {
+.caption span.caption-byline {
   color: #fff;
   padding: 18px;
   font-size: 1em;
