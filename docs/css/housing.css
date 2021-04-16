@@ -1,0 +1,119 @@
+main {
+    display: block;
+  }
+
+.content {
+  padding-top: 0;
+  -webkit-box-flex: 1;
+  -moz-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.content {
+  padding: 0 15px;
+}
+
+.heading {
+  max-width: 930px;
+  padding: 0 15px 90px;
+  margin: 119px auto 0;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .heading {
+    margin: 50px auto 0;
+  }
+}
+.teaser {
+  max-width: 730px;
+  padding: 15px;
+  margin: 0 auto;
+  font-weight: 400;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #111;
+}
+
+.byline {
+  color: #a5a5a5;
+  font-weight: 400;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+.mainhead {
+  font-size: 44px;
+  font-size: 2.75rem;
+  font-family: "Kleine Titel", "Roboto Slab", "Times New Roman", sans-serif;
+  font-weight: 700;
+  text-transform: none;
+}
+
+@media screen and (max-width: 767px) {
+  .mainhead {
+    font-size: 28px;
+    font-size: 1.75rem;
+  }
+}
+
+.section-divider1 {
+  position: relative;
+  opacity: 0.9;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.section-divider1 {
+  background-image: url("../images/hospital.jpg");
+  min-height: 100%;
+}
+
+.section-divider2 {
+  position: relative;
+  opacity: 0.9;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.section-divider2 {
+  background-image: url("../images/community.jpg");
+  min-height: 100%;
+}
+
+.section-caption {
+  position: absolute;
+  left: 0;
+  top: 80%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  overflow: hidden;
+}
+
+.section-caption span.section-heading {
+  color: #fff;
+  padding: 18px;
+  font-size: 4.5em;
+  letter-spacing: 0.2em;
+  overflow: hidden;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .section-divider {
+    background-attachment: scroll;
+  }
+}
+
+.data-infobox {
+  background-color: #e2eafc; /* alternatives: #e2eafc OR depending on data vis colour */
+  border-left-color: #f1c40f;
+  padding: 0.9375rem 0.9375rem 0.9375rem 0.625rem;
+  margin: 1.25rem 1.25rem 1.25rem 0.3125rem;
+  border: 1px solid #eee;
+  border-left-width: 0.3125rem;
+  border-radius: 0.3125rem 0.1875rem 0.1875rem 0.3125rem;
+}
