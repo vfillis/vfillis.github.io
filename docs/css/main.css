@@ -35,10 +35,6 @@ body, html {
   font-size: 30px;
 }
 
-.content {
-  text-align:center;
-}
-
 .caption {
   position: absolute;
   left: 0;
@@ -55,21 +51,14 @@ body, html {
   letter-spacing: 0.3em;
 }
 
-.caption span.caption-heading {
-  color: #fff;
-  padding: 18px;
-  font-size: 2em;
-  letter-spacing: 0.3em;
-}
-
-.caption span.caption-subhead {
+.caption span.subhead {
   color: #fff;
   padding: 18px;
   font-size: 1.5em;
   letter-spacing: 0.2em;
 }
 
-.caption span.caption-byline {
+.caption span.byline {
   color: #fff;
   padding: 18px;
   font-size: 1em;
@@ -122,7 +111,12 @@ h3 {
 }
 
 .text a {
-  color: #777;
+  color: inherit;
+  text-decoration: underline;
+}
+
+p a {
+  color: inherit;
   text-decoration: underline;
 }
 
