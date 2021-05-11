@@ -1,0 +1,116 @@
+.content {
+  padding-top: 0;
+  -webkit-box-flex: 1;
+  -moz-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.heading {
+  max-width: 930px;
+  padding: 0 10px 20px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .heading {
+    margin: 50px auto 0;
+  }
+}
+
+.teaser {
+  max-width: 730px;
+  padding: 2px;
+  margin: 0 auto;
+  font-weight: 400;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #111;
+}
+
+.byline {
+  color: #a5a5a5;
+  font-weight: 400;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+  .mainhead {
+    font-size: 28px;
+    font-size: 1.75rem;
+  }
+}
+
+/** quotes **/
+blockquote {
+  margin:3% auto;
+  border-left:8px solid #720026;
+  padding: 1% 0 1% 3%;
+  position: relative;
+}
+
+
+/** Images **/
+.infographic-fraud-types {
+  margin: auto;
+  width:80%;
+  padding: 5px;
+}
+
+.infographic-reporting-process {
+  margin: auto;
+  width:80%;
+  padding: 5px;
+}
+
+.image-action-fraud {
+  margin: auto;
+  width:95%;
+  padding: 5px;
+}
+
+.title-image {
+  margin: auto;
+  width:95%;
+  padding: 5px;
+}
+
+.twitter-tweet {
+  margin: auto;
+  width:95%;
+  padding: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .image-claire {
+    float: none;
+    width: 40%;
+  }
+  .image-nuwan {
+    float: none;
+    width: 40%;
+  }
+}
+
+
+/** About the data box **/
+.data-infobox {
+  background-color: #e2eafc; /* alternatives: #e2eafc OR depending on data vis colour */
+  border-left-color: #f1c40f;
+  padding: 0.9375rem 0.9375rem 0.9375rem 0.625rem;
+  margin: 1.25rem 1.25rem 1.25rem 0.3125rem;
+  border: 1px solid #eee;
+  border-left-width: 0.3125rem;
+  border-radius: 0.3125rem 0.1875rem 0.1875rem 0.3125rem;
+}
+
+/** divider between article and helplines/data **/
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #720026;
+  width:20%;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
