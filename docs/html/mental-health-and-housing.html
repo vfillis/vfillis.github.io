@@ -17,23 +17,29 @@
     <script src="https://cdn.flourish.rocks/flourish-scrolly-v3.min.js"></script>
 
     <style>
-      @media screen and (min-width: 680px) {
+      @media screen and (min-width: 960px) {
           #my-wrapper {
             margin-left: 30vw; width: 65vw;
           }
 	       .fl-scrolly-step {
 	          margin-left: -20vw !important; width: 20vw !important;
           }
+          h1 {font-size:47px;}
         }
 
-      @media screen and (max-width: 679px) {
+      @media screen and (max-width: 959px) {
             #my-wrapper {
               margin-left: 1vw; width: 65vw;
             }
   	       .fl-scrolly-step {
   	          margin-left: 30vw !important; width: 20vw !important;
             }
+            h1 {
+              font-size: 25px;
+            }
           }
+
+
     </style>
 
 
@@ -58,7 +64,7 @@
 
   <div class="column content">
     <div class="heading">
-      <h1 style="font-size:47px;">"My basic needs were not met at all" &mdash; Thousands of mental health patients experiencing homelessness</h1>
+      <h1>"My basic needs were not met at all" &mdash; Thousands of mental health patients experiencing homelessness</h1>
       <div class="teaser">
         <!--<p>At the end of February 2021, over 10,000 people in contact with adult mental health services were experiencing some kind of homelessness. At the same time, only a minority of trusts have dedicated housing staff.</p>-->
         <p>An investigation into how a hospital stay can lead to homelessness, the effects it has on those with mental illness, and why it’s often difficult to find new and suitable accommodation.</p>
@@ -336,7 +342,6 @@
           trigger_point: "25%",
           offset_top: "100px",
           step_styles: {
-            //fontSize: "20px",
             width: "80%",
             borderRadius: "none",
             border: "none",
