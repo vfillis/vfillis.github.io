@@ -14,7 +14,7 @@
 }
 @media screen and (max-width: 767px) {
   .heading {
-    margin: 50px auto 0;
+    margin: 100px auto 0;
   }
 }
 
@@ -35,19 +35,19 @@
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
-.mainhead {
-  font-size: 44px;
-  font-size: 2.75rem;
-  font-family: "Kleine Titel", "Roboto Slab", "Times New Roman", sans-serif;
-  font-weight: 700;
-  text-transform: none;
-}
-
 @media screen and (max-width: 767px) {
   .mainhead {
     font-size: 28px;
     font-size: 1.75rem;
   }
+}
+
+/** quotes **/
+blockquote {
+  margin:3% auto;
+  border-left:8px solid #720026;
+  padding: 1% 0 1% 3%;
+  position: relative;
 }
 
 /** Section Dividers **/
@@ -120,7 +120,7 @@
 /** Images **/
 .image-claire {
   width:10%;
-  float:left;
+  float:right;
   margin-left: 0;
   margin-right: 0;
   padding:5%;
@@ -133,6 +133,18 @@
   margin-right: 5%;
   padding:5%;
 }
+
+@media screen and (max-width: 767px) {
+  .image-claire {
+    float: none;
+    width: 40%;
+  }
+  .image-nuwan {
+    float: none;
+    width: 40%;
+  }
+}
+
 
 /** About the data box **/
 .data-infobox {
@@ -149,7 +161,7 @@
 
 /* Solid border */
 hr.solid {
-  border-top: 3px solid black;
+  border-top: 3px solid #720026;
   width:20%;
   margin-top: 10%;
   margin-bottom: 5%;
