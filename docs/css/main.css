@@ -30,7 +30,7 @@ body, html {
 .header {
   padding: 60px;
   text-align: center;
-  background: #C3EDEF; /**#1abc9c;**/
+  background: #C7B7EB; /**#1abc9c;**/
   color: white;
   font-size: 30px;
 }
@@ -190,7 +190,7 @@ li {
 .get-in-touch {
   padding: 60px;
   text-align: center;
-  background: #C3EDEF; /**#1abc9c;**/
+  background: #C7B7EB; /**#1abc9c;**/
   color: white;
   font-size: 20px;
   text-decoration: none;
