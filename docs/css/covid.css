@@ -191,63 +191,8 @@ body, html {
     margin: 0 auto;
   }
   
-  /* embeds */
-  .instagram-media {
-    position: relative;
-    margin: 0 auto;
-  }
   
-  /* images */
-  .jocelyn-image {
-    width:50%;
-    float:left;
-    padding:3%;
-  }
-  
-  .abbi-image {
-    width:45%;
-    float:right;
-    padding:3%;
-  }
-  
-  figure {
-    margin:0;
-    border:0;
-    padding:0;
-  }
-  
-  /* captions */
-  figcaption {
-    font-size:14px;
-    color: grey;
-  }
-  
-  /* lists */
-  li {
-    margin-left: 3%;
-    padding:1%;
-  }
-  
-  /* Footer */
-  .footer {
-    /* padding: 20%; */
-    text-align: center;
-    /* margin-top: 20%; */
-  }
-  
-  .get-in-touch {
-    padding: 60px;
-    text-align: center;
-    background: #cdb4db; /**#1abc9c;**/
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-  }
-  
-  .get-in-touch a {
-    text-decoration: none;
-    color:white;
-  }
+
   
   @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
   @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
@@ -267,4 +212,4 @@ body, html {
       content: " (" attr(href) ")";
     }
   }
-  
+  }
