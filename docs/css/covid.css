@@ -1,0 +1,270 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    font-family: Lato, sans-serif;
+    color: #777;
+  }
+
+  #chart {
+    height: 20%;
+  }
+
+  button {
+    background-color: #a6cee3; 
+    border: none;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 10px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .nav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 25px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .home {
+    float: right;
+    padding: 30px 25px;
+    /* position: absolute;
+    right: 0px;
+    top: 0px;*/
+  }
+
+  .heading {
+    max-width: 930px;
+    padding: 0 4px 50px;
+    margin: 100px auto 0;
+    text-align: center;
+  }
+  @media screen and (max-width: 767px) {
+    .heading {
+      margin: 100px auto 0;
+    }
+  }
+
+  .teaser {
+    max-width: 730px;
+    /* padding: 15px; */
+    margin: 0 auto;
+    font-weight: 400;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-size: 1.25rem;
+    color: #111;
+  }
+  
+  .byline {
+    color: #a5a5a5;
+    font-weight: 400;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .mainhead {
+      font-size: 28px;
+      font-size: 1.75rem;
+    }
+  }
+  
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+  
+  .caption span.image-heading {
+    color: #fff;
+    padding: 18px;
+    font-size: 2em;
+    letter-spacing: 0.3em;
+  }
+  
+  .caption span.subhead {
+    color: #fff;
+    padding: 18px;
+    font-size: 1.5em;
+    letter-spacing: 0.2em;
+  }
+  
+  .caption span.byline {
+    color: #fff;
+    padding: 18px;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+  }
+  
+  #to-top {
+    display: none;
+    position: fixed;
+    bottom: 3%;
+    right: 4%;
+    z-index: 100;
+    font-size: 2em;
+    border: none;
+    outline: none;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+    padding:1%;
+    border-radius: 50%;
+  }
+  
+  #to-top:hover {
+    background-color: #555;
+  }
+  
+  h1 {
+    letter-spacing: 3px;
+    /*text-transform: uppercase;*/
+    font: 50px "Lato", sans-serif;
+    color: #111;
+    padding:2%;
+  }
+  
+  h3 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+    /* padding:2%; */
+  }
+  
+  .text {
+    color: #777;
+    background-color:white;
+    text-align:left;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 18px;
+  }
+  
+  .text a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  p a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  .first-word {
+    font-size: 30px;
+    line-height: 70px;
+  }
+  
+  /* blockquotes */
+  .quote {
+    font-style: italic;
+  }
+  
+  .quote .source {
+    font-style: normal;
+    font-weight: bold;
+  }
+  
+  /* Visualisations */
+  .flourish-embed {
+    position:relative;
+    width:100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  /* embeds */
+  .instagram-media {
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  /* images */
+  .jocelyn-image {
+    width:50%;
+    float:left;
+    padding:3%;
+  }
+  
+  .abbi-image {
+    width:45%;
+    float:right;
+    padding:3%;
+  }
+  
+  figure {
+    margin:0;
+    border:0;
+    padding:0;
+  }
+  
+  /* captions */
+  figcaption {
+    font-size:14px;
+    color: grey;
+  }
+  
+  /* lists */
+  li {
+    margin-left: 3%;
+    padding:1%;
+  }
+  
+  /* Footer */
+  .footer {
+    /* padding: 20%; */
+    text-align: center;
+    /* margin-top: 20%; */
+  }
+  
+  .get-in-touch {
+    padding: 60px;
+    text-align: center;
+    background: #cdb4db; /**#1abc9c;**/
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .get-in-touch a {
+    text-decoration: none;
+    color:white;
+  }
+  
+  @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+  @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+  
+  .ft14 {
+  font-size: 44px !important;
+    color:red;
+  }
+  
+  @media print {
+    .header {
+      position: static;
+    }
+  
+   @media print {
+    a[href^="http"]:not([href*="mywebsite.com"])::after {
+      content: " (" attr(href) ")";
+    }
+  }
+  
