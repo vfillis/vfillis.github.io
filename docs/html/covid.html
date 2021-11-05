@@ -32,19 +32,51 @@
         </div>
 
         <div class="text" style="color: #111;">
-        <h2>Daily confirmed coronavirus cases by date reported</h2>
-        <p>Select time period: 
-          <button id="full-data">All</button>
-          <button id="last-year">One year</button> 
-          <button id="last-6-months">Last six months</button> 
-          <button id="last-3-months">Last three months</button> 
-          <button id="latest-month">Last month</button> 
-
-        </p>
+          <h2>Daily confirmed coronavirus cases by date reported</h2>
+          <p>Select time period: 
+            <button id="full-data-cases">All</button>
+            <button id="last-year-cases">One year</button> 
+            <button id="last-6-months-cases">Last six months</button> 
+            <button id="last-3-months-cases">Last three months</button> 
+            <button id="latest-month-cases">Last month</button> 
+          </p>
+        </div>
         
-        <div id="chart"></div>
+        <div id="chartCovidCases"></div>
+        
+        <div class="text" style="color: #111;">
+          <h2>Coronavirus deaths per day</h2>
+          <p>Select time period: 
+            <button id="full-data-deaths">All</button>
+            <button id="last-year-deaths">One year</button> 
+            <button id="last-6-months-deaths">Last six months</button> 
+            <button id="last-3-months-deaths">Last three months</button> 
+            <button id="latest-month-deaths">Last month</button> 
+          </p>
+        </div>
+          <div id="chartCovidDeaths"></div>
 
-    </div>
+        <!-- <div class="text" style="color: #111;">
+          <h2>Coronavirus vaccinations</h2>
+          <p>Select time period: 
+            <button id="full-data-hospital">All</button>
+            <button id="last-year-hospital">One year</button> 
+            <button id="last-6-months-hospital">Last six months</button> 
+            <button id="last-3-months-hospital">Last three months</button> 
+            <button id="latest-month-hospital">Last month</button> 
+          </p>
+        </div> -->
+
+        <!-- <div class="text" style="color: #111;">
+          <h2>Coronavirus hospitalisations per day</h2>
+          <p>Select time period: 
+            <button id="full-data-hospital">All</button>
+            <button id="last-year-hospital">One year</button> 
+            <button id="last-6-months-hospital">Last six months</button> 
+            <button id="last-3-months-hospital">Last three months</button> 
+            <button id="latest-month-hospital">Last month</button> 
+          </p>
+        </div> -->
 
       <script>
           d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/cases-England.csv").then(function(raw_data){
@@ -52,9 +84,9 @@
             "template": "@flourish/line-bar-pie",
             "version": "22.1.0",
             "api_key": "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
-            "container": "#chart",
+            "container": "#chartCovidCases",
             "private": false,
-            "height": "180%",
+            // "height": "180%",
             "state": {
                 "chart_type": "column_stacked_line",
                 "color": {
@@ -81,6 +113,7 @@
                 "facets": {
                 "title_color": null
                 },
+                "height_mode": "auto",
                 "label_data_type": "auto",
                 "layout": {
                 "body_font": {
@@ -115,9 +148,12 @@
                 "header_text_size": "custom",
                 "header_text_size_custom": 1.1,
                 "header_text_line_height": 1.15,
-                "footer_text_size": 0.9,
+                "footer_note": "",
+                "footer_note_secondary": "<b>Chart credit:</b> Vanessa Fillis",
+                "source_label": "<b>Data source: </b>",
                 "source_name": "data.gov.uk",
-                "source_url": "https://coronavirus.data.gov.uk/details/cases",
+                "source_url": "https://coronavirus.data.gov.uk/",
+                "footer_text_size": 0.9,
                 "footer_logo_height": 2
                 },
                 "legend_categorical": {
@@ -198,7 +234,7 @@
 });
 
   // latest month
-	document.getElementById("latest-month").addEventListener('click', function () {
+	document.getElementById("latest-month-cases").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
     var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
@@ -222,7 +258,7 @@
   })
 
   // last 3 months
-  document.getElementById("last-3-months").addEventListener('click', function () {
+  document.getElementById("last-3-months-cases").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
     var todayMinusThreeMonths = d.getFullYear()+'-'+(d.getMonth()-2)+'-'+(d.getDate()-1);
@@ -246,7 +282,7 @@
   }) 
 
   // last 6 months
-  document.getElementById("last-6-months").addEventListener('click', function () {
+  document.getElementById("last-6-months-cases").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
     var todayMinusSixMonths = d.getFullYear()+'-'+(d.getMonth()-5)+'-'+(d.getDate()-1);
@@ -270,7 +306,7 @@
   }) 
 
   // last year
-  document.getElementById("last-year").addEventListener('click', function () {
+  document.getElementById("last-year-cases").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
     var todayMinusOneYear = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
@@ -294,7 +330,7 @@
   })
 
   // all 
-  document.getElementById("full-data").addEventListener('click', function () {
+  document.getElementById("full-data-cases").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
 
@@ -303,6 +339,293 @@
           "x": {
             "datetime_max": today,
             "datetime_min": "2020-02-17"
+          },
+          "color": {
+                "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3"
+                ],
+          }
+        }
+    });
+  })  
+
+});
+
+          d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/deaths-England.csv").then(function(raw_data){
+          var my_visualisation = new Flourish.Live({
+            "template": "@flourish/line-bar-pie",
+            "version": "22.1.0",
+            "api_key": "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
+            "container": "#chartCovidDeaths",
+            "private": false,
+            // "height": "180%",
+            "state": {
+                "chart_type": "column_stacked_line",
+                "color": {
+                "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3"
+                ],
+                "sequential_palette": "Custom",
+                "sequential_custom_min": "#e0e7f0",
+                "sequential_custom_max": "#0d7faf",
+                "diverging_palette": "Custom",
+                "diverging_custom_min": "#df070a",
+                "diverging_custom_max": "#15be09",
+                },
+                "column_opacity": 1,
+                "column_padding_inner": 20,
+                "column_padding_stack": 0.3,
+                "datetime_input_format": "%Y-%m-%d",
+                "dot_mode": "off",
+                "dot_radius": 0.01,
+                "dot_radius_last": 100000,
+                "dual_axis": false,
+                "facet_layout": "single",
+                "facets": {
+                "title_color": null
+                },
+                "height_mode": "auto",
+                "label_data_type": "auto",
+                "layout": {
+                "body_font": {
+                    "name": "Lato",
+                    "url": "https://fonts.googleapis.com/css?family=Lato:400,700"
+                },
+                "subtitle_font": {
+                    "name": "Source Sans Pro",
+                    "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
+                },
+                "border": {
+                    "enabled": false,
+                    "top": {
+                    "width": 3,
+                    "color": "#686868"
+                    },
+                    "right": {
+                    "width": 0
+                    },
+                    "bottom": {
+                    "width": 0
+                    },
+                    "left": {
+                    "width": 0
+                    }
+                },
+                "font_color": "#404040",
+                "title_size": "custom",
+                "title_size_custom": 1.5,
+                "subtitle_size": "custom",
+                "subtitle_size_custom": 1.25,
+                "header_text_size": "custom",
+                "header_text_size_custom": 1.1,
+                "header_text_line_height": 1.15,
+                "footer_text_size": 0.9,
+                "source_name": "data.gov.uk",
+                "source_url": "https://coronavirus.data.gov.uk/details/cases",
+                "footer_logo_height": 2
+                },
+                "legend_categorical": {
+                "order_override": "Daily deaths by date reported\nSeven-day average",
+                "swatch_width": 0.7,
+                "swatch_height": 0.75,
+                "swatch_radius": 2
+                },
+                "legend_show": "false",
+                "line_width": 0.2,
+                "number_format": {
+                "advanced": true,
+                "n_dec": 0,
+                "strip_separator": false
+                },
+                "popup": {
+                "is_custom": false,
+                "style_popups": true
+                },
+                "stack_labels": false,
+                "text_legend": "off",
+                "x_axis_date_format": "%d-%b-%y",
+                "x": {
+                "datetime_max": "2021-10-25",
+                "datetime_min": "2020-02-17",
+                "flip": false,
+                "show_scale_settings": false,
+                "tick_label_styling": true,
+                "tick_mode": "number",
+                "tick_label_color": "#777777",
+                "tick_label_angle": 0
+                },
+                "y": {
+                "tick_label_styling": true,
+                "tick_mode": "number",
+                "tick_label_color": "#777777"
+                },
+                "legend_continuous": {
+                "color_band_height": 3,
+                "color_band_radius": 1
+                },
+                "legend_categorical_points": {
+                "swatch_width": 0.7,
+                "swatch_height": 0.75,
+                "swatch_radius": 2
+                },
+                "legend_categorical_map": {
+                "swatch_width": 0.7,
+                "swatch_height": 0.75,
+                "swatch_radius": 2
+                },
+                "legend_continuous_points": {
+                "color_band_height": 3,
+                "color_band_radius": 1
+                },
+                "legend_continuous_map": {
+                "color_band_height": 3,
+                "color_band_radius": 1
+                }
+            },
+            "bindings": {
+                "data": {
+                "label": "date",
+                "value": [
+                    "Seven-day average",
+                    "Daily deaths by date reported"
+                ],
+                // "metadata": [
+                //     "date", 
+                //     "Seven-day average",
+                //     "Daily cases by date reported"
+                // ]
+                }
+            },
+            "data": {
+              data: raw_data
+            },
+});
+
+  // latest month
+	document.getElementById("latest-month-deaths").addEventListener('click', function () {
+    var d = new Date();
+    var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+    var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+    console.log(raw_data);
+    console.log(d3.max(raw_data, function(raw_data) { return raw_data['Daily deaths by date reported']; }));
+    // console.log(today);
+    // console.log(todayMinusOneMonth);
+
+    my_visualisation.update({
+        state: {
+          "x": {
+            "datetime_max": today,
+            "datetime_min": todayMinusOneMonth
+          },
+          "y": {
+            "linear_max": 400,
+          },
+          "color": {
+                "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3"
+                ],
+          }
+        }
+    });
+  })
+
+  // last 3 months
+  document.getElementById("last-3-months-deaths").addEventListener('click', function () {
+    var d = new Date();
+    var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+    var todayMinusThreeMonths = d.getFullYear()+'-'+(d.getMonth()-2)+'-'+(d.getDate()-1);
+    // console.log(today);
+    // console.log(todayMinusThreeMonths);
+
+    my_visualisation.update({
+        state: {
+          "x": {
+            "datetime_max": today,
+            "datetime_min": todayMinusThreeMonths
+          },
+          "y": {
+            "linear_max": 400,
+          },
+          "color": {
+                "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3"
+                ],
+          }
+        }
+    });
+  }) 
+
+  // last 6 months
+  document.getElementById("last-6-months-deaths").addEventListener('click', function () {
+    var d = new Date();
+    var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+    var todayMinusSixMonths = d.getFullYear()+'-'+(d.getMonth()-5)+'-'+(d.getDate()-1);
+    // console.log(today);
+    // console.log(todayMinusSixMonths);
+
+    my_visualisation.update({
+        state: {
+          "x": {
+            "datetime_max": today,
+            "datetime_min": todayMinusSixMonths
+          },
+          "y": {
+            "linear_max": 400,
+          },
+          "color": {
+                "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3"
+                ],
+          }
+        }
+    });
+  }) 
+
+  // last year
+  document.getElementById("last-year-deaths").addEventListener('click', function () {
+    var d = new Date();
+    var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+    var todayMinusOneYear = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+    // console.log(today);
+    // console.log(todayMinusOneYear);
+
+    my_visualisation.update({
+        state: {
+          "x": {
+            "datetime_max": today,
+            "datetime_min": todayMinusOneYear
+          },
+          "y": {
+            "linear_max": 1700,
+          },
+          "color": {
+                "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3"
+                ],
+          }
+        }
+    });
+  })
+
+  // all 
+  document.getElementById("full-data-deaths").addEventListener('click', function () {
+    var d = new Date();
+    var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+
+    my_visualisation.update({
+        state: {
+          "x": {
+            "datetime_max": today,
+            "datetime_min": "2020-02-17"
+          },
+          "y": {
+            "linear_max": 1700,
           },
           "color": {
                 "categorical_palette": [
