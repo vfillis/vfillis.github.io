@@ -6,7 +6,7 @@ body, html {
     background: #fdfdfd;
   }
 
-  #chartCovidCases, #chartCovidDeaths, #chartCovidVaccinations  {
+  #chartCovidCases, #chartCovidDeaths, #chartCovidVaccinations, #chartCovidVaccinationsAges {
     width: 70%;
     margin-left: 10%;
     margin-right: 10%;
@@ -115,26 +115,6 @@ body, html {
     letter-spacing: 0.2em;
   }
   
-  #to-top {
-    display: none;
-    position: fixed;
-    bottom: 3%;
-    right: 4%;
-    z-index: 100;
-    font-size: 2em;
-    border: none;
-    outline: none;
-    background-color: grey;
-    color: white;
-    cursor: pointer;
-    padding:1%;
-    border-radius: 50%;
-  }
-  
-  #to-top:hover {
-    background-color: #555;
-  }
-  
   h1 {
     letter-spacing: 3px;
     /*text-transform: uppercase;*/
@@ -153,7 +133,7 @@ body, html {
   
   .text {
     color: #777;
-    background-color:white;
+    background-color: #fdfdfd;
     text-align:left;
     margin-left: 15%;
     margin-right: 15%;
