@@ -8,6 +8,10 @@
   margin-right: 10%;
 }
 
+audio::-webkit-media-controls-panel {
+  background-color: #CDB4DB;
+}
+
 .wrap {
   margin:50px auto 0 auto;
   width:100%;
