@@ -71,6 +71,10 @@ body, html {
     font-size: 1.25rem;
     color: #111;
   }
+
+  .teaser p {
+    font-size: 20px;
+  }
   
   .byline {
     color: #a5a5a5;
@@ -135,9 +139,18 @@ body, html {
     color: #777;
     background-color: #fdfdfd;
     text-align:left;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-right: 15%;
-    font-size: 18px;
+    /* padding-inline: 0.2em 0px; */
+    font-weight: normal;
+  }
+
+  .text p {
+    font-size: 1.5rem;
+  }
+
+  .text h2 {
+    font-size: 2rem;
   }
   
   .text a {

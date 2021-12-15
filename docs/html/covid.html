@@ -26,13 +26,14 @@
         <div class="heading">
           <h1>Coronavirus cases, deaths and vaccinations today in England</h1>
           <div class="teaser">
-            <p>The latest daily updates on coronavirus cases in England.</p>
+            <p>The latest daily updates on coronavirus cases, deaths and vaccinations in England.</p>
           </div>
-            <div class="byline">By Vanessa Fillis, 3 November 2021</div>
+            <div class="byline">By Vanessa Fillis, 3 November 2021</div> 
         </div>
 
         <div class="text" style="color: #111;">
           <h2>Daily confirmed coronavirus cases by date reported</h2>
+          <!-- <p>X people have tested positive for Covid-19 on.</p> -->
           <p>Select time period: 
             <button id="full-data-cases">All</button>
             <button id="last-year-cases">One year</button> 
@@ -99,10 +100,18 @@
       </div>
 
       <script>
-          // covid cases
+        // dates 
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var todayFormatted = (d.getDate()-1)+' '+month[d.getMonth()]+' '+d.getFullYear();
+          
+        // covid cases
           d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/cases-England.csv").then(function(raw_data){
-          var d = new Date();
-          var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+          // var buttonAll = document.createElement("button");
+          // buttonAll.innerHTML = "All";
+          // buttonAll.id = "full-data-cases";
+          // console.log(buttonAll);
           var my_visualisation = new Flourish.Live({
             "template": "@flourish/line-bar-pie",
             "version": "22.1.0",
@@ -174,7 +183,7 @@
                 "header_text_size": "custom",
                 "header_text_size_custom": 1.1,
                 "header_text_line_height": 1.15,
-                "footer_note": "",
+                "footer_note": "Last updated: " + todayFormatted,
                 "footer_note_secondary": "<b>Chart credit:</b> Vanessa Fillis",
                 "source_label": "<b>Data source: </b>",
                 "source_name": "data.gov.uk",
@@ -380,8 +389,6 @@
 
           // covid deaths 
           d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/deaths-England.csv").then(function(raw_data){
-            var d = new Date();
-            var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
             var my_visualisation = new Flourish.Live({
             "template": "@flourish/line-bar-pie",
             "version": "22.1.0",
@@ -425,6 +432,7 @@
                 "label_data_type": "auto",
                 "layout": {
                 "background_color": "#fdfdfd",
+                "margin_top": 0,
                 "body_font": {
                 "name": "Roboto Condensed",
                 "url": "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"
@@ -454,6 +462,7 @@
                 "header_text_size_custom": 1.1,
                 "header_text_line_height": 1.15,
                 "footer_text_size": 0.9,
+                "footer_note": "Last updated: " + todayFormatted,
                 "footer_note_secondary": "<b>Chart credit:</b> Vanessa Fillis <br>People who have died within 28 days of their first positive test for coronavirus. Deaths assigned to the date they are reported. Line shows daily average in a given week.",
                 "source_label": "<b>Data source: </b>",
                 "source_name": "data.gov.uk",
@@ -675,8 +684,6 @@
 
           // covid vaccinations total 
           d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/vaccinations-England.csv").then(function(raw_data){
-          var d = new Date();
-          var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
           var my_visualisation = new Flourish.Live({
             "template": "@flourish/line-bar-pie",
             "version": "22.1.0",
@@ -723,7 +730,7 @@
               "name": "Roboto Condensed",
               "url": "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"
               },
-              "footer_note": "",
+              "footer_note": "Last updated: " + todayFormatted,
               "footer_note_secondary": "<b>Chart credit:</b> Vanessa Fillis",
               "source_label": "<b>Data source: </b>",
               "source_name": "data.gov.uk",
@@ -1007,7 +1014,7 @@
                 "name": "Roboto Condensed",
                 "url": "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"
                 },
-                "footer_note": "",
+                "footer_note": "Last updated: " + todayFormatted,
                 "footer_note_secondary": "<b>Chart credit:</b> Vanessa Fillis <br> Data for England only. ",
                 "source_label": "<b>Data source: </b>",
                 "source_name": "data.gov.uk",
