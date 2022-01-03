@@ -576,7 +576,7 @@
   document.getElementById("last-3-months-deaths").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-    var todayMinusThreeMonths = d.getFullYear()+'-'+(d.getMonth()-2)+'-'+(d.getDate()-1);
+    var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
     // console.log(today);
     // console.log(todayMinusThreeMonths);
 
@@ -603,7 +603,7 @@
   document.getElementById("last-6-months-deaths").addEventListener('click', function () {
     var d = new Date();
     var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-    var todayMinusSixMonths = d.getFullYear()+'-'+(d.getMonth()-5)+'-'+(d.getDate()-1);
+    var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
     // console.log(today);
     // console.log(todayMinusSixMonths);
 
@@ -879,7 +879,7 @@
           document.getElementById("last-3-months-vaccinations").addEventListener('click', function () {
             var d = new Date();
             var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-            var todayMinusThreeMonths = d.getFullYear()+'-'+(d.getMonth()-2)+'-'+(d.getDate()-1);
+            var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
             my_visualisation.update({
                 state: {
                   "x": {
@@ -901,7 +901,7 @@
           document.getElementById("last-6-months-vaccinations").addEventListener('click', function () {
             var d = new Date();
             var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-            var todayMinusSixMonths = d.getFullYear()+'-'+(d.getMonth()-5)+'-'+(d.getDate()-1);
+            var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
             my_visualisation.update({
                 state: {
                   "x": {
