@@ -47,20 +47,25 @@
         <h2>Wie es in den Landkreisen aussieht</h2>
         <div class="flourish-embed flourish-map" data-src="visualisation/8193340?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
 
+        <!-- <div id="chartCoronaFaelleMap"></div> -->
+
         <br>
-        <div class="flourish-embed flourish-chart" data-src="visualisation/8202306?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        <!-- <div class="flourish-embed flourish-chart" data-src="visualisation/8202306?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div> -->
+
+        <div id="chartCoronaFaelleLK"></div>
 
         <!-- <h2>Die Lage in den Krankenhäusern</h2> -->
+        
 
         <script>
-            // dates 
-            var d = new Date();
-            var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-            const month = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
-            var todayFormatted = (d.getDate()-1)+' '+month[d.getMonth()]+' '+d.getFullYear();
+        // dates 
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        const month = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+        var todayFormatted = (d.getDate()-1)+' '+month[d.getMonth()]+' '+d.getFullYear();
               
-            // covid cases DE
-              d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/cases-DE.csv").then(function(raw_data){
+    // covid cases DE
+    d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/cases-DE.csv").then(function(raw_data){
               var my_visualisation = new Flourish.Live({
                 "template": "@flourish/line-bar-pie",
                 "version": "22.2.5",
@@ -356,6 +361,44 @@
       })  
     
     });
+    
+    // Faelle in den Landkreisen
+    fetch('https://public.flourish.studio/visualisation/8202306/visualisation.json')
+            .then(response => response.json())
+            .then(data => {
+                // Add my API key to the configuration
+                data.api_key = "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
+
+                // Add 'container' selector where I want chart added in the HTML
+                data.container = "#chartCoronaFaelleLK";
+
+                // update footer
+                data.state.layout.footer_note = "Zuletzt aktualisiert: " + todayFormatted;
+
+                // update max on x-axis
+                data.state.x.datetime_max = today;
+
+                // Create my visualization with the API
+                var flourish_visualization = new Flourish.Live(data);
+    });
+      
+    // Faelle auf map 
+    fetch('https://public.flourish.studio/visualisation/8193340/visualisation.json')
+            .then(response => response.json())
+            .then(data => {
+                // Add my API key to the configuration
+                data.api_key = "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
+
+                // Add 'container' selector where I want chart added in the HTML
+                data.container = "#chartCoronaFaelleMap";
+
+                // update footer
+                data.state.layout.footer_note = "Zuletzt aktualisiert: " + todayFormatted;
+
+                // Create my visualization with the API
+                var flourish_visualization = new Flourish.Live(data);
+    });
+        
         </script>    
 </body>
 </html>

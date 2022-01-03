@@ -12,6 +12,13 @@ body, html {
     margin-right: 10%;
   }
 
+  #chartCoronaFaelleMap {
+    width: 60%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+  }
+
   button {
     background-color: #a6cee3; 
     border: none;
