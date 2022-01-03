@@ -33,7 +33,14 @@
 
     <div class="text" style="color: #111; text-align: center;">
         <h2>Die Infektionslage in Deutschland</h2>
-        <div id="chartCovidCases1"></div>
+        <p>Wähle Zeitraum aus: 
+            <button id="full-data-cases">Gesamter Zeitraum</button>
+            <button id="last-year-cases">Letzte 12 Monate</button> 
+            <button id="last-6-months-cases">Letzte 6 Monate</button> 
+            <button id="last-3-months-cases">Letzte 3 Monate</button> 
+            <button id="latest-month-cases">Letzter Monat</button> 
+        </p>
+        <div id="chartCoronaFaelle"></div>
         <!-- <div class="flourish-embed flourish-chart" data-src="visualisation/8213413?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div> -->
         <br>
         
@@ -41,25 +48,24 @@
         <div class="flourish-embed flourish-map" data-src="visualisation/8193340?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
 
         <br>
-        
         <div class="flourish-embed flourish-chart" data-src="visualisation/8202306?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
 
-        <h2>Die Lage in den Krankenhäusern</h2>
+        <!-- <h2>Die Lage in den Krankenhäusern</h2> -->
 
         <script>
             // dates 
             var d = new Date();
             var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-            const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            const month = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
             var todayFormatted = (d.getDate()-1)+' '+month[d.getMonth()]+' '+d.getFullYear();
               
-            // covid cases
+            // covid cases DE
               d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/cases-DE.csv").then(function(raw_data){
               var my_visualisation = new Flourish.Live({
                 "template": "@flourish/line-bar-pie",
                 "version": "22.2.5",
                 "api_key": "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
-                "container": "#chartCovidCases1",
+                "container": "#chartCoronaFaelle",
                 "private": false,
                 "state": {
                     "height_mode": "auto",
@@ -260,7 +266,7 @@
       document.getElementById("last-3-months-cases").addEventListener('click', function () {
         var d = new Date();
         var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-        var todayMinusThreeMonths = d.getFullYear()+'-'+(d.getMonth()-2)+'-'+(d.getDate()-1);
+        var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
         // console.log(today);
         // console.log(todayMinusThreeMonths);
     
@@ -284,7 +290,7 @@
       document.getElementById("last-6-months-cases").addEventListener('click', function () {
         var d = new Date();
         var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
-        var todayMinusSixMonths = d.getFullYear()+'-'+(d.getMonth()-5)+'-'+(d.getDate()-1);
+        var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
         // console.log(today);
         // console.log(todayMinusSixMonths);
     
@@ -350,6 +356,6 @@
       })  
     
     });
-</script>    
+        </script>    
 </body>
 </html>
