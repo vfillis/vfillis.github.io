@@ -33,9 +33,9 @@
 
     <div class="text" style="color: #111; text-align: center;">
         <h2>Die Infektionslage in Deutschland</h2>
-        <div class="flourish-embed flourish-chart" data-src="visualisation/8213413?804905"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        <div id="chartCovidCases1"></div>
+        <!-- <div class="flourish-embed flourish-chart" data-src="visualisation/8213413?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div> -->
         <br>
-        <!-- <h2>Daily confirmed coronavirus cases by date reported</h2> -->
         
         <h2>Wie es in den Landkreisen aussieht</h2>
         <div class="flourish-embed flourish-map" data-src="visualisation/8193340?804905" data-height="98vh"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
@@ -46,6 +46,310 @@
 
         <h2>Die Lage in den Krankenhäusern</h2>
 
+        <script>
+            // dates 
+            var d = new Date();
+            var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+            const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            var todayFormatted = (d.getDate()-1)+' '+month[d.getMonth()]+' '+d.getFullYear();
+              
+            // covid cases
+              d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/cases-DE.csv").then(function(raw_data){
+              var my_visualisation = new Flourish.Live({
+                "template": "@flourish/line-bar-pie",
+                "version": "22.2.5",
+                "api_key": "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
+                "container": "#chartCovidCases1",
+                "private": false,
+                "state": {
+                    "height_mode": "auto",
+                    "layout": {
+                    "source_name": "RKI",
+                    "source_label": "<b>Quelle:</b>",
+                    "source_url": "https://github.com/robert-koch-institut/SARS-CoV-2_Infektionen_in_Deutschland",
+                    "background_color_enabled": false,
+                    "body_font": {
+                    "name": "Roboto Condensed",
+                    "url": "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"
+                    },
+                    "space_between_sections": "1",
+                    "space_between_sections_custom": 0,
+                    "margin_top": 0.75,
+                    "title": "Gemeldete Coronavirus-Neuinfektionen in Deutschland",
+                    "subtitle": "",
+                    "subtitle_font": {
+                    "name": "Source Sans Pro",
+                    "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
+                    },
+                    "border": {
+                    "enabled": false,
+                    "top": {
+                    "width": 3,
+                    "color": "#686868"
+                    },
+                    "right": {
+                    "width": 0
+                    },
+                    "bottom": {
+                    "width": 0
+                    },
+                    "left": {
+                    "width": 0
+                    }
+                    },
+                    "font_color": "#404040",
+                    "title_size": "custom",
+                    "title_size_custom": 1.5,
+                    "subtitle_size": "custom",
+                    "subtitle_size_custom": 1.25,
+                    "header_text_size": "custom",
+                    "header_text_size_custom": 1.1,
+                    "header_text_line_height": 1.15,
+                    "footer_text_size": 0.9,
+                    "footer_logo_height": 2,
+                    "footer_note": "Zuletzt aktualisiert: " + todayFormatted,
+                    },
+                    "chart_type": "column_grouped_line",
+                    "color": {
+                    "categorical_custom_palette": "",
+                    "categorical_palette": [
+                    "#1f78b4",
+                    "#a6cee3",
+                    "#650271",
+                    "#FCCCC8",
+                    "#616161",
+                    "#94346e",
+                    "#0090a3",
+                    "#2ed1c6",
+                    "#6fcc88",
+                    "#c658c0"
+                    ],
+                    "sequential_palette": "Custom",
+                    "sequential_custom_min": "#e0e7f0",
+                    "sequential_custom_max": "#0d7faf",
+                    "diverging_palette": "Custom",
+                    "diverging_custom_min": "#df070a",
+                    "diverging_custom_max": "#15be09",
+                    },
+                    "controls_style": {
+                    "font_size": 0,
+                    "padding": 0
+                    },
+                    "dual_axis": false,
+                    "legend_categorical": {
+                    "legend_items_padding": 0.2,
+                    "swatch_width": 0.7,
+                    "swatch_height": 0.75,
+                    "swatch_radius": 2
+                    },
+                    "legend_filter_mode": "filter-out",
+                    "legend_mode": "on",
+                    "line_curve": "curveMonotoneX",
+                    "line_width": 0.2,
+                    "number_format": {
+                    "n_dec": 0
+                    },
+                    "number_format_secondary": {
+                    "n_dec": 0
+                    },
+                    "popup": {
+                    "custom_template": "<h1 style=\"\">{{Meldedatum}} </h1>\nGemeldete Fallzahl des Tages: {{gemeldete Fallzahl des Tages}} <br>\nLaufender Tagesdurchschnitt der vergangenen 7 Tage: {{Laufender Tagesdurchschnitt der vergangenen 7 Tage}}",
+                    "is_custom": false
+                    },
+                    "row_filter_control": {
+                    "button_group_width_fixed": 0,
+                    "button_group_width_mode": "fixed",
+                    "control_styles": true,
+                    "control_type": "buttons"
+                    },
+                    "series_filter_mode": "none",
+                    "url_state": {
+                    "whitelist": "row_filter"
+                    },
+                    "x_axis_date_format": "%d-%b-%y",
+                    "x": {
+                    "datetime_min": "2020-03-19",
+                    "nice": false,
+                    "show_scale_settings": true,
+                    "tick_label_angle": "0",
+                    "tick_label_styling": true,
+                    "tick_length": 0.3,
+                    "tick_mode": "number",
+                    "tick_number": 4,
+                    "zero_axis": "auto",
+                    "tick_label_color": "#777777"
+                    },
+                    "y": {
+                    "title": "",
+                    "title_position": "end",
+                    "title_size": 0.9,
+                    "title_styling": true,
+                    "title_weight": "bold",
+                    "tick_label_color": "#777777"
+                    },
+                    "legend_continuous": {
+                    "color_band_height": 1,
+                    "color_band_radius": 1
+                    },
+                    "map_colors": {
+                    "sequential_palette": "Custom",
+                    "sequential_custom_min": "#e0e7f0",
+                    "sequential_custom_max": "#0d7faf",
+                    "diverging_palette": "Custom",
+                    "diverging_custom_min": "#df070a",
+                    "diverging_custom_max": "#15be09"
+                    },
+                    "legend_categorical_points": {
+                    "swatch_width": 0.7,
+                    "swatch_height": 0.75,
+                    "swatch_radius": 2
+                    },
+                    "legend_categorical_map": {
+                    "swatch_width": 0.7,
+                    "swatch_height": 0.75,
+                    "swatch_radius": 2
+                    },
+                    "legend_continuous_points": {
+                    "color_band_height": 1,
+                    "color_band_radius": 1
+                    },
+                    "legend_continuous_map": {
+                    "color_band_height": 1,
+                    "color_band_radius": 1
+                    }
+                    },
+                "bindings": {
+                    "data": {
+                    "label": "Meldedatum",
+                    "value": [
+                        "Laufender Tagesdurchschnitt der vergangenen 7 Tage",
+                        "gemeldete Fallzahl des Tages"
+                    ],
+                    }
+                },
+                "data": {
+                  data: raw_data
+                }     
+    });
     
+      // latest month
+        document.getElementById("latest-month-cases").addEventListener('click', function () {
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+        // console.log(today);
+        // console.log(todayMinusOneMonth);
+    
+        my_visualisation.update({
+            state: {
+              "x": {
+                "datetime_max": today,
+                "datetime_min": todayMinusOneMonth
+              },
+              "color": {
+                    "categorical_palette": [
+                      "#1e558c",
+                      "#94d2e6",
+                    ],
+              }
+            }
+        });
+      })
+    
+      // last 3 months
+      document.getElementById("last-3-months-cases").addEventListener('click', function () {
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        var todayMinusThreeMonths = d.getFullYear()+'-'+(d.getMonth()-2)+'-'+(d.getDate()-1);
+        // console.log(today);
+        // console.log(todayMinusThreeMonths);
+    
+        my_visualisation.update({
+            state: {
+              "x": {
+                "datetime_max": today,
+                "datetime_min": todayMinusThreeMonths
+              },
+              "color": {
+                    "categorical_palette": [
+                      "#1e558c",
+                      "#94d2e6",
+                    ],
+              }
+            }
+        });
+      }) 
+    
+      // last 6 months
+      document.getElementById("last-6-months-cases").addEventListener('click', function () {
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        var todayMinusSixMonths = d.getFullYear()+'-'+(d.getMonth()-5)+'-'+(d.getDate()-1);
+        // console.log(today);
+        // console.log(todayMinusSixMonths);
+    
+        my_visualisation.update({
+            state: {
+              "x": {
+                "datetime_max": today,
+                "datetime_min": todayMinusSixMonths
+              },
+              "color": {
+                    "categorical_palette": [
+                      "#1e558c",
+                      "#94d2e6",
+                    ],
+              }
+            }
+        });
+      }) 
+    
+      // last year
+      document.getElementById("last-year-cases").addEventListener('click', function () {
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        var todayMinusOneYear = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+        // console.log(today);
+        // console.log(todayMinusOneYear);
+    
+        my_visualisation.update({
+            state: {
+              "x": {
+                "datetime_max": today,
+                "datetime_min": todayMinusOneYear
+              },
+              "color": {
+                    "categorical_palette": [
+                      "#1e558c",
+                      "#94d2e6",
+                    ],
+              }
+            }
+        });
+      })
+    
+      // all 
+      document.getElementById("full-data-cases").addEventListener('click', function () {
+        var d = new Date();
+        var today = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+    
+        my_visualisation.update({
+            state: {
+              "x": {
+                "datetime_max": today,
+                "datetime_min": "2020-02-17"
+              },
+              "color": {
+                    "categorical_palette": [
+                      "#1e558c",
+                      "#94d2e6",
+                    ],
+              }
+            }
+        });
+      })  
+    
+    });
+</script>    
 </body>
 </html>
