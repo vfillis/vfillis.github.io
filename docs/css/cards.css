@@ -1,6 +1,6 @@
 * {
 	box-sizing: border-box;
-}
+} 
 
 .blog-card {
 	display: flex;
@@ -213,4 +213,16 @@
 	.blog-card.alt .details {
 		padding-left: 25px;
 	}
+}
+
+@media only screen and (max-width: 400px) {
+	.blog-card .description h1 {
+		font-size: 1rem;
+  }
+  .blog-card .description h2 {
+    font-size: 0.8rem;
+}
+
+.blog-card p {
+    font-size: 0.8rem;
 }
