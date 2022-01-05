@@ -115,7 +115,8 @@
 .blog-card .description h1 {
 	line-height: 1;
 	margin: 0;
-	font-size: 1.7rem;
+	font-size: 1.5rem;
+	letter-spacing: normal !important;
 }
 
 .blog-card .description h2 {
