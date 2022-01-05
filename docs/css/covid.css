@@ -6,7 +6,7 @@ body, html {
     background: #fdfdfd;
   }
 
-  #chartCovidCases, #chartCovidDeaths, #chartCovidVaccinations, #chartCovidVaccinationsAges {
+  #chartCovidCases, #chartCovidDeaths, #chartCovidVaccinations, #chartCovidVaccinationsAges, #chartCovidHospitalisations {
     width: 70%;
     margin-left: 10%;
     margin-right: 10%;

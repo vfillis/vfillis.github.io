@@ -52,6 +52,19 @@
         </div>
           <div id="chartCovidDeaths"></div>
 
+          <div class="text" style="color: #111;">
+            <br>
+          <h2 style="font-size: 1.5rem; line-height: 1.2;font-weight: bold; color: rgb(64, 64, 64);margin: 0px;padding-top: 0rem;font-family: 'Roboto Condensed';">Coronavirus hospitalisations per day</h2>
+          <p>Select time period: 
+            <button id="full-data-hospital">All</button>
+            <button id="last-year-hospital">One year</button> 
+            <button id="last-6-months-hospital">Last six months</button> 
+            <button id="last-3-months-hospital">Last three months</button> 
+            <button id="latest-month-hospital">Last month</button> 
+          </p>
+        </div>
+        <div id="chartCovidHospitalisations"></div>
+
           <div class="text" style="color: #111; text-align: center;">
           <h2>Coronavirus vaccinations</h2>
           <p>Select time period: 
@@ -64,27 +77,16 @@
         </div>
         <div id="chartCovidVaccinations"></div>
 
-        <!-- <div class="text" style="color: #111; text-align: center;">
+        <div class="text" style="color: #111; text-align: center;">
           <h2>Vaccinations in age groups</h2>
         </div>
-        <div id="chartCovidVaccinationsAges"></div> -->
+        <div id="chartCovidVaccinationsAges"></div>
 
         <!-- <div class="text" style="color: #111;">
           <h2>Find coronavirus cases near you</h2>
           <p>The following table shows the number of cases in the last seven days per 100,000 people. It also compares the figure to the previous seven days and states whether cases have increased or decreased.</p>
         </div>
         <div id="chartCovidCasesTable"></div> -->
-
-        <!-- <div class="text" style="color: #111;">
-          <h2>Coronavirus hospitalisations per day</h2>
-          <p>Select time period: 
-            <button id="full-data-hospital">All</button>
-            <button id="last-year-hospital">One year</button> 
-            <button id="last-6-months-hospital">Last six months</button> 
-            <button id="last-3-months-hospital">Last three months</button> 
-            <button id="latest-month-hospital">Last month</button> 
-          </p>
-        </div> -->
 
         <div class="text" style="color: #111;">
           <h2>About the data</h2>
@@ -365,159 +367,117 @@
   })
 
     // covid vacctinations percentage in each groups 
-          d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/vaccinations-England-ages.csv").then(function(raw_data){
-            var my_visualisation = new Flourish.Live({
-              "template": "@flourish/line-bar-pie",
-              "version": "22.1.0",
-              "api_key": "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
-              "container": "#chartCovidVaccinationsAges",
-              "private": false,
-              "state": {
-                "chart_type": "column_stacked",
-                "color": {
-                "categorical_palette": [
-                "#FE4E36",
-                "#FFBAC8",
-                "#fff4f0"
-                ],
-                "sequential_palette": "Custom",
-                "sequential_custom_min": "#e0e7f0",
-                "sequential_custom_max": "#0d7faf",
-                "diverging_palette": "Custom",
-                "diverging_custom_min": "#df070a",
-                "diverging_custom_max": "#15be09",
-                "palette": [
-                "#188ce5",
-                "#2db757",
-                "#ff6d00",
-                "#ff4136",
-                "#616161",
-                "#94346e",
-                "#0090a3",
-                "#2ed1c6",
-                "#6fcc88",
-                "#c658c0"
-                ]
-                },
-                "column_opacity": 0.9,
-                "column_padding_inner": 9,
-                "column_padding_stack": 0,
-                "facets": {
-                "title_color": null
-                },
-                "layout": {
-                "background_color": "#fdfdfd",
-                "body_font": {
-                "name": "Roboto Condensed",
-                "url": "https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"
-                },
-                "footer_note": "Last updated: " + todayFormatted,
-                "footer_note_secondary": "<b>Chart credit:</b> Vanessa Fillis <br> Data for England only. ",
-                "source_label": "<b>Data source: </b>",
-                "source_name": "data.gov.uk",
-                "source_url": "https://coronavirus.data.gov.uk/",
-                "subtitle_font": {
-                "name": "Source Sans Pro",
-                "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
-                },
-                "border": {
-                "enabled": false,
-                "top": {
-                "width": 3,
-                "color": "#686868"
-                },
-                "right": {
-                "width": 0
-                },
-                "bottom": {
-                "width": 0
-                },
-                "left": {
-                "width": 0
+    fetch('https://public.flourish.studio/visualisation/8305767/visualisation.json')
+      .then(response => response.json())
+      .then(config => {
+      // Add my API key to the configuration
+      config.api_key = "FGCFFotq1s0aECvKcS6rilvdJBCgAHgG-jRUsR9uFznEbEodBBws9Niphbd3z93b",
+
+      // Add 'container' selector where I want chart added in the HTML
+      config.container = "#chartCovidVaccinationsAges";
+
+      // Replace the example visualization's data & bindings with my own (but keep all the same settings)
+      d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/vaccinations-England-ages.csv")
+        .then(function (raw_data) {        
+          // Update data
+          config.data.data = raw_data;
+          // Update bindings
+          config.bindings.data = {
+              label: 'age',
+              value: ['Three doses', 'Two doses only', 'First dose only', 'No vaccine'],
+          }
+
+      // update footer
+      config.state.layout.footer_note = "Last updated: " + todayFormatted;
+
+      // Create my visualization with the API
+      var flourish_visualization = new Flourish.Live(config);
+    });
+  });
+         
+  // hospitalisations 
+  fetch('https://public.flourish.studio/visualisation/7741739/visualisation.json')
+            .then(response => response.json())
+            .then(config => {
+                // Add my API key to the configuration
+                config.api_key = "NCDegg6ooUOYhj732gNWwxnB9_CLyxt3GQFUdJSRmhcHaFVIjMO-fW2Y8b7mK9-m";
+
+                // Add 'container' selector where I want chart added in the HTML
+                config.container = "#chartCovidHospitalisations";
+
+                // Replace the example visualization's data & bindings with my own (but keep all the same settings)
+                d3.csv("https://raw.githubusercontent.com/vfillis/automated-covid/main/data/healthcare-England.csv").then(function (raw_data) {
+                
+                // Update data
+                config.data.data = raw_data;
+
+                // Update bindings
+                config.bindings.data = {
+                    label: 'date',
+                    value: ['Seven-day average hospital admissions', 'Seven-day average MV beds', 'Seven-day average hospital cases'],
                 }
-                },
-                "font_color": "#404040",
-                "title_size": "custom",
-                "title_size_custom": 1.5,
-                "subtitle_size": "custom",
-                "subtitle_size_custom": 1.25,
-                "header_text_size": "custom",
-                "header_text_size_custom": 1.1,
-                "header_text_line_height": 1.15,
-                "footer_text_size": 0.9,
-                "footer_logo_height": 2
-                },
-                "legend_categorical": {
-                "order_override": "No vaccine\nFirst dose only\nTwo doses\n",
-                "swatch_width": 0.7,
-                "swatch_height": 0.75,
-                "swatch_radius": 2
-                },
-                "number_format": {
-                  "suffix": "%"
-                },
-                "y": {
-                "gridline_category_dividers": false,
-                "gridline_color": "#ffffff",
-                "gridlines_styling": true,
-                "gridline_style": "dot_dash",
-                "linear_max": 100,
-                "linear_min": 0,
-                "tick_label_color": "#777777"
-                },
-                "legend_continuous": {
-                "color_band_height": 3,
-                "color_band_radius": 1
-                },
-                "colors": {
-                "sequential_palette": "Custom",
-                "sequential_custom_min": "#e0e7f0",
-                "sequential_custom_max": "#0d7faf",
-                "diverging_palette": "Custom",
-                "diverging_custom_min": "#df070a",
-                "diverging_custom_max": "#15be09"
-                },
-                "legend_categorical_points": {
-                "swatch_width": 0.7,
-                "swatch_height": 0.75,
-                "swatch_radius": 2
-                },
-                "legend_categorical_map": {
-                "swatch_width": 0.7,
-                "swatch_height": 0.75,
-                "swatch_radius": 2
-                },
-                "legend_continuous_points": {
-                "color_band_height": 3,
-                "color_band_radius": 1
-                },
-                "legend_continuous_map": {
-                "color_band_height": 3,
-                "color_band_radius": 1
-                },
-                "x": {
-                "tick_label_color": "#777777"
-                }
-                },
-                "bindings": {
-                  "data": {
-                    "label": "age",
-                    "value": [
-                        "Two doses",
-                        "First dose only",
-                        "No vaccine"
-                    ],
-                  }
-                },
-                "data": {
-                  data: raw_data
-                },
-            });
-          });
+
+                // Update x-axis max (set as today)
+                config.state.x.datetime_max = today;
             
-          // case rate table 
+                // Get today's date & update footer
+                config.state.layout.footer_note = "<style>#data-point-labels .series .data-label {display: none;} #data-point-labels .series .data-label:first-child {display: block;}</style> Last updated: " + todayFormatted;
+                
+                // Create my visualization with the API
+                var flourish_visualization = new Flourish.Live(config);
+                
+                // update chart when button is clicked 
+                const latestMonth = document.getElementById("latest-month-hospital")
+                const last3months = document.getElementById("last-3-months-hospital")
+                const last6months = document.getElementById("last-6-months-hospital")
+                const last12months = document.getElementById("last-year-hospital")
+                const all = document.getElementById("full-data-hospital")
+
+                latestMonth.addEventListener('click', function () {
+                    var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+                    updateAxis(todayMinusOneMonth);
+                });
+
+                last3months.addEventListener('click', function () {
+                    var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
+                    updateAxis(todayMinusThreeMonths);
+                });
+
+                last6months.addEventListener('click', function () {
+                    var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
+                    updateAxis(todayMinusSixMonths);
+                });
+
+                last12months.addEventListener('click', function () {
+                    var todayMinusTwelveMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+                    updateAxis(todayMinusTwelveMonths);
+                });
+
+                all.addEventListener('click', function () {
+                    var startData = "2020-02-17";
+                    updateAxis(startData);
+                });
+                
+                // funtion that updates axis with date from button onClick function
+                function updateAxis(date) {
+                    flourish_visualization.update({
+                        state: {
+                                x: {
+                                    datetime_min: date
+                                },
+                                // color: {
+                                //     categorical_palette: ["#1f78b4", "#a6cee3",],
+                                // }
+                            },
+                    })
+                };
+            });
+  })
+
+
+  // case rate table 
           
-          // vaccination uptake in age groups 
+  // vaccination uptake in age groups 
 
       </script>
 
