@@ -33,6 +33,14 @@ body, html {
     transition-duration: 0.4s;
     cursor: pointer;
   }
+
+  button:active {
+    background-color: #304b5a; 
+  }
+
+  button:focus {
+    background-color: #304b5a; 
+  }
   
   .nav a {
     float: right;

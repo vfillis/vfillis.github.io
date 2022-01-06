@@ -287,7 +287,6 @@ border-bottom-right-radius: 12px;
 }
 
 /* mobile styles for .cards */
-/* Mobile Styles */
 @media only screen and (max-width: 400px) {
   .card {
     margin-right: 25px;
