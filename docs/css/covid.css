@@ -20,7 +20,7 @@ body, html {
   }
 
   button {
-    background-color: #a6cee3; 
+    background-color: #c9cae0;   /*  #a6cee3; */
     border: none;
     border-radius: 0.3rem;
     color: white;
@@ -34,12 +34,14 @@ body, html {
     cursor: pointer;
   }
 
+ 
+
   button:active {
-    background-color: #304b5a; 
+    background-color: #585885; /* #304b5a; */
   }
 
   button:focus {
-    background-color: #304b5a; 
+    background-color: #585885; /* #304b5a; */
   }
   
   .nav a {
