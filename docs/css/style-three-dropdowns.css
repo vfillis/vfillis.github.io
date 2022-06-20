@@ -1,0 +1,135 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+/* Dropdown */
+.first-dropdown-wrapper {
+    position: relative;
+    user-select: none;
+    width: 32%;
+    margin: 32px auto 32px auto;
+    float:left;
+  }
+
+  .second-dropdown-wrapper {
+    position: relative;
+    user-select: none;
+    width: 32%;
+    margin: 32px auto 32px auto;
+    float:left;
+  }
+
+  .third-dropdown-wrapper {
+    position: relative;
+    user-select: none;
+    width: 32%;
+    margin: 32px auto 32px auto;
+    float:left;
+  }
+
+  .dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-width: 0 2px 0 2px;
+    border-style: solid;
+    border-color: #394a6d;
+    margin-left: 5%;
+  }
+  
+  .select__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #3b3b3b;
+    height: 60px;
+    line-height: 1.2;
+    background: #ffffff;
+    cursor: pointer;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #394a6d;
+  }
+
+  @media screen and (max-width:500px) {
+    .select__trigger { font-size: 0.7rem; line-height: 1;} 
+    .list-option { font-size: 0.7rem; } 
+    }
+
+  .list-options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid #394a6d;
+    border-top: 0;
+    background: #fff;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    max-height: 20rem;
+      overflow-y: auto;
+  }
+  .dropdown.open .list-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .list-option {
+    position: relative;
+    display: block;
+    padding: 0 22px 0 22px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #3b3b3b;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .list-option:hover {
+    cursor: pointer;
+    color: #b2b2b2;
+  }
+
+
+  .df-viz {
+    margin: 10px auto 10px;
+    font-family: Inter, Roboto, sans-serif;
+  }
+
+  /* Chart */
+.df-viz .viz-chart {
+    position: relative; /* TO ADD */
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    height: 500px;
+    background-color: #fff;
+    /* box-shadow: 0px 40px 80px rgba(0, 0, 0, 0.05); */
+    border-radius: 3px;
+  }
+  
+  /* TO ADD */
+  .viz-base-chart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .df-viz iframe {
+    border: unset;
+    width: 100%;
+    height: calc(100% - 4rem);
+    transition: height 250ms;
+  }
+  
