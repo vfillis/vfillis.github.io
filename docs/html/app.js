@@ -5,6 +5,7 @@ const monthD = ["Januar","Februar","März","April","Mai","Juni","Juli","August",
 const monthE = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 var todayFormattedD = (d.getDate()-1)+' '+monthD[d.getMonth()]+' '+d.getFullYear();
 var todayFormattedE = (d.getDate()-1)+' '+monthE[d.getMonth()]+' '+d.getFullYear();
+var lastUpdatedDate = "2022-06-24"
               
 // covid cases DE
 fetch('https://public.flourish.studio/visualisation/8213413/visualisation.json')
@@ -147,10 +148,10 @@ fetch('https://public.flourish.studio/visualisation/7636694/visualisation.json')
         }
 
         // Update x-axis max (set as today)
-        config.state.x.datetime_max = today;
+        config.state.x.datetime_max = lastUpdatedDate;
     
         // Get today's date & update footer
-        config.state.layout.footer_note = "Last updated: " + todayFormattedE;
+        config.state.layout.footer_note = "Last updated: " + lastUpdatedDate;
         
         // Create my visualization with the API
         var flourish_visualization = new Flourish.Live(config);
@@ -163,22 +164,22 @@ fetch('https://public.flourish.studio/visualisation/7636694/visualisation.json')
         const all = document.getElementById("full-data-cases")
 
         latestMonth.addEventListener('click', function () {
-            var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+            var todayMinusOneMonth = "2022-05-24";
             updateAxis(todayMinusOneMonth);
         });
 
         last3months.addEventListener('click', function () {
-            var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
+            var todayMinusThreeMonths = "2022-03-24";
             updateAxis(todayMinusThreeMonths);
         });
 
         last6months.addEventListener('click', function () {
-            var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
+            var todayMinusSixMonths = "2021-12-24";
             updateAxis(todayMinusSixMonths);
         });
 
         last12months.addEventListener('click', function () {
-            var todayMinusTwelveMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+            var todayMinusTwelveMonths = "2021-06-24";
             updateAxis(todayMinusTwelveMonths);
         });
 
@@ -227,10 +228,10 @@ fetch('https://public.flourish.studio/visualisation/8297444/visualisation.json')
         }
 
         // Update x-axis max (set as today)
-        config.state.x.datetime_max = today;
+        config.state.x.datetime_max = lastUpdatedDate;
     
         // Get today's date & update footer
-        config.state.layout.footer_note = "Last updated: " + todayFormattedE;
+        config.state.layout.footer_note = "Last updated: " + lastUpdatedDate;
         
         // Create my visualization with the API
         var flourish_visualization = new Flourish.Live(config);
@@ -243,28 +244,28 @@ fetch('https://public.flourish.studio/visualisation/8297444/visualisation.json')
         const all = document.getElementById("full-data-deaths")
 
         latestMonth.addEventListener('click', function () {
-            var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+            var todayMinusOneMonth = "2022-05-24";
             updateAxis(todayMinusOneMonth);
             var yMax = 400;
             updateYAxis(yMax);
         });
 
         last3months.addEventListener('click', function () {
-            var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
+            var todayMinusThreeMonths = "2022-03-24";
             updateAxis(todayMinusThreeMonths);
             var yMax = 400;
             updateYAxis(yMax);
         });
 
         last6months.addEventListener('click', function () {
-            var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
+            var todayMinusSixMonths = "2021-12-24";
             updateAxis(todayMinusSixMonths);
             var yMax = 400;
             updateYAxis(yMax);
         });
 
         last12months.addEventListener('click', function () {
-            var todayMinusTwelveMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+            var todayMinusTwelveMonths = "2021-06-24";
             updateAxis(todayMinusTwelveMonths);
             var yMax = 1700;
             updateYAxis(yMax);
@@ -330,10 +331,10 @@ fetch('https://public.flourish.studio/visualisation/7747873/visualisation.json')
         }
 
         // Update x-axis max (set as today)
-        config.state.x.datetime_max = today;
+        config.state.x.datetime_max = lastUpdatedDate;
     
         // Get today's date & update footer
-        config.state.layout.footer_note = "Last updated: " + todayFormattedE;
+        config.state.layout.footer_note = "Last updated: " + lastUpdatedDate;
         
         // Create my visualization with the API
         var flourish_visualization = new Flourish.Live(config);
@@ -346,27 +347,27 @@ fetch('https://public.flourish.studio/visualisation/7747873/visualisation.json')
         const all = document.getElementById("full-data-vaccinations")
 
         latestMonth.addEventListener('click', function () {
-            var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+            var todayMinusOneMonth = "2022-05-24";
             updateAxis(todayMinusOneMonth);
         });
 
         last3months.addEventListener('click', function () {
-            var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
+            var todayMinusThreeMonths = "2022-03-24";
             updateAxis(todayMinusThreeMonths);
         });
 
         last6months.addEventListener('click', function () {
-            var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
+            var todayMinusSixMonths = "2021-12-24";
             updateAxis(todayMinusSixMonths);
         });
 
         last12months.addEventListener('click', function () {
-            var todayMinusTwelveMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+            var todayMinusTwelveMonths = "2021-06-24";
             updateAxis(todayMinusTwelveMonths);
         });
 
         all.addEventListener('click', function () {
-            var startData = "2021-01-11";
+            var startData = "2020-02-17";
             updateAxis(startData);
         });
         
@@ -408,7 +409,7 @@ fetch('https://public.flourish.studio/visualisation/8305767/visualisation.json')
         }
 
         // update footer
-        config.state.layout.footer_note = "Last updated: " + todayFormattedE;
+        config.state.layout.footer_note = "Last updated: " + lastUpdatedDate;
 
         // Create my visualization with the API
         var flourish_visualization = new Flourish.Live(config);
@@ -438,10 +439,10 @@ fetch('https://public.flourish.studio/visualisation/7741739/visualisation.json')
         }
 
         // Update x-axis max (set as today)
-        config.state.x.datetime_max = today;
+        config.state.x.datetime_max = lastUpdatedDate;
     
         // Get today's date & update footer
-        config.state.layout.footer_note = "<style>#data-point-labels .series .data-label {display: none;} #data-point-labels .series .data-label:first-child {display: block;}</style> Last updated: " + todayFormattedE;
+        config.state.layout.footer_note = "<style>#data-point-labels .series .data-label {display: none;} #data-point-labels .series .data-label:first-child {display: block;}</style> Last updated: " + lastUpdatedDate;
         
         // Create my visualization with the API
         var flourish_visualization = new Flourish.Live(config);
@@ -454,22 +455,22 @@ fetch('https://public.flourish.studio/visualisation/7741739/visualisation.json')
         const all = document.getElementById("full-data-hospital")
 
         latestMonth.addEventListener('click', function () {
-            var todayMinusOneMonth = d.getFullYear()+'-'+(d.getMonth())+'-'+(d.getDate()-1);
+            var todayMinusOneMonth = "2022-05-24";
             updateAxis(todayMinusOneMonth);
         });
 
         last3months.addEventListener('click', function () {
-            var todayMinusThreeMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+10)+'-'+(d.getDate()-1);
+            var todayMinusThreeMonths = "2022-03-24";
             updateAxis(todayMinusThreeMonths);
         });
 
         last6months.addEventListener('click', function () {
-            var todayMinusSixMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+7)+'-'+(d.getDate()-1);
+            var todayMinusSixMonths = "2021-12-24";
             updateAxis(todayMinusSixMonths);
         });
 
         last12months.addEventListener('click', function () {
-            var todayMinusTwelveMonths = (d.getFullYear()-1)+'-'+(d.getMonth()+1)+'-'+(d.getDate()-1);
+            var todayMinusTwelveMonths = "2021-06-24";
             updateAxis(todayMinusTwelveMonths);
         });
 
